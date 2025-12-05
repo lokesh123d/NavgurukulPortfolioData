@@ -162,7 +162,7 @@ const AdminPanel = ({ students }) => {
                     </div>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '2rem' }}>
+                <div className="admin-grid">
                     {/* Form */}
                     <div className="glass" style={{ padding: '1.5rem', borderRadius: '1rem', height: 'fit-content' }}>
                         <h2 style={{ marginBottom: '1.5rem' }}>{isEditing ? 'Edit Student' : 'Add New Student'}</h2>

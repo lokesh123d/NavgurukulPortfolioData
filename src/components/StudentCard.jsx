@@ -47,18 +47,21 @@ const StudentCard = ({ student }) => {
                 </p>
 
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.5rem' }}>
-                    {student.skills.map((skill, index) => (
-                        <span key={index} style={{
-                            fontSize: '0.75rem',
-                            padding: '0.25rem 0.75rem',
-                            background: 'var(--light)',
-                            color: 'var(--primary)',
-                            borderRadius: '1rem',
-                            fontWeight: '500'
-                        }}>
-                            {skill}
-                        </span>
-                    ))}
+                    {Array.isArray(student.skills) && student.skills.map((skill, index) => {
+                        const skillName = typeof skill === 'object' ? (skill.skill || JSON.stringify(skill)) : skill;
+                        return (
+                            <span key={index} style={{
+                                fontSize: '0.75rem',
+                                padding: '0.25rem 0.75rem',
+                                background: 'var(--light)',
+                                color: 'var(--primary)',
+                                borderRadius: '1rem',
+                                fontWeight: '500'
+                            }}>
+                                {skillName}
+                            </span>
+                        );
+                    })}
                 </div>
 
                 <a

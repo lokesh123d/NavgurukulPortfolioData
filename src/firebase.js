@@ -8,15 +8,38 @@ import { getAuth } from "firebase/auth";
 // 3. Click the web icon (</>) to add an app
 // 4. Copy the "firebaseConfig" object and paste the values here
 
+// Helper to safely read and trim env vars
+const readEnv = (key) => (import.meta.env[key] ?? "").toString().trim();
+
+// Validate required env vars early for clearer errors in dev/prod
+const requiredKeys = [
+    "VITE_FIREBASE_API_KEY",
+    "VITE_FIREBASE_AUTH_DOMAIN",
+    "VITE_FIREBASE_PROJECT_ID",
+    "VITE_FIREBASE_STORAGE_BUCKET",
+    "VITE_FIREBASE_MESSAGING_SENDER_ID",
+    "VITE_FIREBASE_APP_ID",
+    "VITE_FIREBASE_DATABASE_URL"
+];
+
+const missing = requiredKeys.filter((k) => !readEnv(k));
+if (missing.length) {
+    // Throwing gives a clear stack and stops initialization with a helpful message
+    throw new Error(
+        `Missing Firebase environment variables: ${missing.join(", ")}.\n` +
+        `Ensure a .env file exists at the project root and restart dev server.`
+    );
+}
+
 const firebaseConfig = {
-    apiKey: "AIzaSyCOsShiXlwMaDKBYBQpkjqxqD0MAx0SWsc",
-    authDomain: "navgurukul-f710d.firebaseapp.com",
-    projectId: "navgurukul-f710d",
-    storageBucket: "navgurukul-f710d.firebasestorage.app",
-    messagingSenderId: "835927058920",
-    appId: "1:835927058920:web:50e3c2c76266d6b3819c5d",
-    measurementId: "G-VLCW8MG4J8",
-    databaseURL: "https://navgurukul-f710d-default-rtdb.firebaseio.com"
+    apiKey: readEnv("VITE_FIREBASE_API_KEY"),
+    authDomain: readEnv("VITE_FIREBASE_AUTH_DOMAIN"),
+    projectId: readEnv("VITE_FIREBASE_PROJECT_ID"),
+    storageBucket: readEnv("VITE_FIREBASE_STORAGE_BUCKET"),
+    messagingSenderId: readEnv("VITE_FIREBASE_MESSAGING_SENDER_ID"),
+    appId: readEnv("VITE_FIREBASE_APP_ID"),
+    measurementId: readEnv("VITE_FIREBASE_MEASUREMENT_ID"),
+    databaseURL: readEnv("VITE_FIREBASE_DATABASE_URL"),
 };
 
 // Initialize Firebase

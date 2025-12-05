@@ -34,16 +34,13 @@ const AdminPanel = ({ students }) => {
     const handleLogin = async (e) => {
         e.preventDefault();
         setError('');
-
-        if (email !== 'admin@navgurukul.com') {
-            setError('Access Denied: Only admin@navgurukul.com can login.');
-            return;
-        }
-
         try {
             await signInWithEmailAndPassword(auth, email, password);
         } catch (err) {
-            setError('Invalid email or password');
+            const msg = err?.code === 'auth/invalid-credential' || err?.code === 'auth/wrong-password'
+                ? 'Invalid email or password'
+                : 'Login failed. Please try again.';
+            setError(msg);
             console.error(err);
         }
     };
@@ -70,7 +67,7 @@ const AdminPanel = ({ students }) => {
 
         try {
             if (isEditing) {
-                const studentRef = ref(db, `students / ${isEditing} `);
+                const studentRef = ref(db, `students/${isEditing}`);
                 await update(studentRef, studentData);
                 setIsEditing(null);
             } else {
@@ -95,7 +92,7 @@ const AdminPanel = ({ students }) => {
     const handleDelete = async (id) => {
         if (window.confirm('Are you sure you want to delete this student?')) {
             try {
-                const studentRef = ref(db, `students / ${id} `);
+                const studentRef = ref(db, `students/${id}`);
                 await remove(studentRef);
             } catch (err) {
                 console.error("Error deleting data: ", err);

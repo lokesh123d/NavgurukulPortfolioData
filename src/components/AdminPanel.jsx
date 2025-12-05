@@ -155,8 +155,8 @@ const AdminPanel = ({ students }) => {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
                     <h1>Admin Dashboard</h1>
                     <div style={{ display: 'flex', gap: '1rem' }}>
-                        <Link to="/" className="btn btn-outline">View Site</Link>
-                        <button onClick={handleLogout} className="btn btn-outline" style={{ color: 'var(--danger)', borderColor: 'var(--danger)' }}>
+                        <Link to="/" className="btn btn-secondary">View Site</Link>
+                        <button onClick={handleLogout} className="btn btn-danger">
                             <LogOut size={16} /> Logout
                         </button>
                     </div>

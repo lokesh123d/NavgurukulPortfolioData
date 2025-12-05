@@ -103,7 +103,8 @@ button {
 /* Admin Grid Layout */
 .admin-grid {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1.3fr 2fr;
+  /* Increased form width */
   gap: 2rem;
 }
 
@@ -111,6 +112,32 @@ button {
   .admin-grid {
     grid-template-columns: 1fr;
   }
+}
+
+.btn-secondary {
+  background-color: var(--white);
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  font-weight: 600;
+}
+
+.btn-secondary:hover {
+  background-color: var(--primary);
+  color: var(--white);
+  transform: translateY(-1px);
+}
+
+.btn-danger {
+  background-color: #fee2e2;
+  color: var(--danger);
+  border: 2px solid var(--danger);
+  font-weight: 600;
+}
+
+.btn-danger:hover {
+  background-color: var(--danger);
+  color: var(--white);
+  transform: translateY(-1px);
 }
 
 /* Animations */

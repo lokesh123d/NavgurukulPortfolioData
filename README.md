@@ -1,16 +1,53 @@
-# React + Vite
+# NavGurukul Student Portfolios
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Description
+This is a web application built to manage and showcase the portfolios of students from NavGurukul. The main goal of this project is to provide a digital platform where students can display their skills, projects, and bio to potential recruiters and the world.
 
-Currently, two official plugins are available:
+The application consists of two main parts:
+1. **Public View**: A beautiful, responsive gallery where anyone can browse through student profiles.
+2. **Admin Panel**: A secure, password-protected dashboard that allows administrators to add new students, update existing details, or remove profiles. All changes happen in real-time.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- **Live Student Gallery**: Automatically updates whenever new data is added.
+- **Admin Dashboard**: Secure login system to manage student data.
+- **Real-time Updates**: Uses Firebase Realtime Database to sync data instantly across all devices.
+- **Responsive Design**: Fully optimized for laptops, tablets, and mobile phones.
+- **Secure Authentication**: Only authorized admins can access the dashboard.
 
-## React Compiler
+## Technologies Used
+- **Frontend**: React.js, Vite
+- **Styling**: Modern CSS (Glassmorphism effects, Responsive Grid)
+- **Backend**: Firebase Realtime Database
+- **Authentication**: Firebase Auth
+- **Deployment**: Vercel
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## How to Run Locally
 
-## Expanding the ESLint configuration
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/lokesh123d/NavgurukulPortfolioData.git
+   cd NavgurukulPortfolioData
+   ```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2. **Install Dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Setup Environment Variables**
+   Create a file named `.env` in the root folder and add your Firebase credentials (see `.env.example`).
+
+4. **Start the Server**
+   ```bash
+   npm run dev
+   ```
+
+## Deployment
+This project is deployed on Vercel. To deploy your own version:
+1. Push your code to GitHub.
+2. Import the project into Vercel.
+3. Add the Environment Variables in Vercel Settings.
+4. Deploy.
+
+## License
+This project is created for NavGurukul to help students showcase their talent.

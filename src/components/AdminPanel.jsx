@@ -19,7 +19,9 @@ const AdminPanel = ({ students }) => {
         bio: '',
         skills: '',
         portfolioUrl: '',
-        batch: ''
+        resumeUrl: '',
+        batch: '',
+        category: 'Aspirational Developer'
     });
 
     // Check authentication state
@@ -74,7 +76,7 @@ const AdminPanel = ({ students }) => {
                 const studentsRef = ref(db, 'students');
                 await push(studentsRef, studentData);
             }
-            setFormData({ name: '', photo: '', bio: '', skills: '', portfolioUrl: '', batch: '' });
+            setFormData({ name: '', photo: '', bio: '', skills: '', portfolioUrl: '', resumeUrl: '', batch: '', category: 'Aspirational Developer' });
         } catch (err) {
             console.error("Error saving data: ", err);
             alert("Error saving student data");
@@ -208,6 +210,23 @@ const AdminPanel = ({ students }) => {
                                 style={{ padding: '0.75rem', borderRadius: '0.5rem', border: '1px solid var(--gray-light)' }}
                             />
                             <input
+                                name="resumeUrl"
+                                placeholder="Resume/CV Link (Google Drive/Dropbox)"
+                                value={formData.resumeUrl}
+                                onChange={handleInputChange}
+                                style={{ padding: '0.75rem', borderRadius: '0.5rem', border: '1px solid var(--gray-light)' }}
+                            />
+                            <select
+                                name="category"
+                                value={formData.category}
+                                onChange={handleInputChange}
+                                style={{ padding: '0.75rem', borderRadius: '0.5rem', border: '1px solid var(--gray-light)', background: 'white' }}
+                            >
+                                <option value="Aspirational Developer">Aspirational Developer</option>
+                                <option value="Junior Developer">Junior Developer</option>
+                                <option value="Developers - Interns">Developers - Interns</option>
+                            </select>
+                            <input
                                 name="batch"
                                 placeholder="Batch Year"
                                 value={formData.batch}
@@ -223,7 +242,7 @@ const AdminPanel = ({ students }) => {
                                 {isEditing && (
                                     <button
                                         type="button"
-                                        onClick={() => { setIsEditing(null); setFormData({ name: '', photo: '', bio: '', skills: '', portfolioUrl: '', batch: '' }); }}
+                                        onClick={() => { setIsEditing(null); setFormData({ name: '', photo: '', bio: '', skills: '', portfolioUrl: '', resumeUrl: '', batch: '', category: 'Aspirational Developer' }); }}
                                         className="btn btn-outline"
                                     >
                                         <X size={16} /> Cancel
@@ -251,7 +270,7 @@ const AdminPanel = ({ students }) => {
                                         <img src={student.photo || "https://ui-avatars.com/api/?name=" + encodeURIComponent(student.name) + "&background=random"} alt={student.name} style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'cover' }} />
                                         <div>
                                             <h4 style={{ margin: 0 }}>{student.name}</h4>
-                                            <span style={{ fontSize: '0.8rem', color: 'var(--gray-medium)' }}>{student.batch}</span>
+                                            <span style={{ fontSize: '0.8rem', color: 'var(--gray-medium)' }}>{student.batch} • {student.category || 'Uncategorized'}</span>
                                         </div>
                                     </div>
                                     <div style={{ display: 'flex', gap: '0.5rem' }}>

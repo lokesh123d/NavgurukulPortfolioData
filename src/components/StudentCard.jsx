@@ -37,7 +37,20 @@ const StudentCard = ({ student }) => {
                     color: 'white'
                 }}>
                     <h3 style={{ fontSize: '1.25rem', fontWeight: '600' }}>{student.name}</h3>
-                    <span style={{ fontSize: '0.875rem', opacity: 0.9 }}>Batch {student.batch}</span>
+                    <div style={{ fontSize: '0.875rem', opacity: 0.9, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <span>Batch {student.batch}</span>
+                        {student.category && (
+                            <span style={{
+                                background: 'rgba(255,255,255,0.2)',
+                                padding: '0.1rem 0.5rem',
+                                borderRadius: '1rem',
+                                fontSize: '0.7rem',
+                                border: '1px solid rgba(255,255,255,0.3)'
+                            }}>
+                                {student.category}
+                            </span>
+                        )}
+                    </div>
                 </div>
             </div>
 
@@ -64,15 +77,29 @@ const StudentCard = ({ student }) => {
                     })}
                 </div>
 
-                <a
-                    href={student.portfolioUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-primary"
-                    style={{ width: '100%', justifyContent: 'center' }}
-                >
-                    View Portfolio <ExternalLink size={16} />
-                </a>
+                <div style={{ display: 'flex', gap: '0.5rem' }}>
+                    <a
+                        href={student.portfolioUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn-primary"
+                        style={{ flex: 1, justifyContent: 'center' }}
+                    >
+                        View Portfolio <ExternalLink size={16} />
+                    </a>
+                    {student.resumeUrl && (
+                        <a
+                            href={student.resumeUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn btn-outline"
+                            style={{ padding: '0.75rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                            title="Download Resume"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        </a>
+                    )}
+                </div>
             </div>
         </div>
     );

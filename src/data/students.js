@@ -6,7 +6,8 @@ export const initialStudents = [
     bio: "Full Stack Developer passionate about building scalable web applications. Expert in React and Node.js.",
     skills: ["React", "Node.js", "MongoDB", "Tailwind"],
     portfolioUrl: "https://github.com/aarav",
-    batch: "2023"
+    batch: "2023",
+    category: "Junior Developer"
   },
   {
     id: 2,
@@ -15,7 +16,8 @@ export const initialStudents = [
     bio: "UI/UX Designer turned Frontend Developer. I love creating beautiful and intuitive user interfaces.",
     skills: ["Figma", "React", "CSS", "Animation"],
     portfolioUrl: "https://behance.net/priya",
-    batch: "2023"
+    batch: "2023",
+    category: "Aspirational Developer"
   },
   {
     id: 3,
@@ -24,7 +26,8 @@ export const initialStudents = [
     bio: "Backend Engineer with a knack for system architecture and database optimization.",
     skills: ["Python", "Django", "PostgreSQL", "AWS"],
     portfolioUrl: "https://github.com/rahul",
-    batch: "2022"
+    batch: "2022",
+    category: "Developers - Interns"
   },
   {
     id: 4,
@@ -33,7 +36,8 @@ export const initialStudents = [
     bio: "Creative Coder and Generative Artist. Exploring the intersection of code and art.",
     skills: ["p5.js", "JavaScript", "WebGL", "Three.js"],
     portfolioUrl: "https://sneha.dev",
-    batch: "2024"
+    batch: "2024",
+    category: "Junior Developer"
   }
 ];
 

@@ -35,12 +35,12 @@ function App() {
     <>
       <Navbar />
       <Hero />
-      <About />
       {loading ? (
         <div style={{ padding: '4rem', textAlign: 'center' }}>Loading portfolios...</div>
       ) : (
         <PortfolioGrid students={students} />
       )}
+      <About />
       <Footer />
     </>
   );

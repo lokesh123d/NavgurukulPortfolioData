@@ -31,8 +31,8 @@ const Hero = () => {
                         color: 'var(--dark)',
                         fontWeight: '800'
                     }}>
-                        Building the Future of <br />
-                        <span style={{ color: 'var(--primary)' }}>Tech in India</span>
+                        Future Tech Leaders <br />
+                        <span style={{ color: 'var(--primary)' }}>from the Himalayas</span>
                     </h1>
                     <p style={{
                         fontSize: '1.25rem',
@@ -42,7 +42,7 @@ const Hero = () => {
                         marginLeft: 'auto',
                         marginRight: 'auto'
                     }}>
-                        NavGurukul offers fully funded software engineering courses to underserved youth, creating pathways to meaningful careers.
+                        NavGurukul Dharamshala Campus: Empowering the next generation of software engineers from the mountains to the world.
                     </p>
                     <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
                         <a href="#portfolio" className="btn btn-primary">
